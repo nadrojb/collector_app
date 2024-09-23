@@ -18,11 +18,12 @@ if ($result){
 
 function displayPlant($plants)
 {
+    $result = '';
     foreach ($plants as $plant) {
-        $allPlants[] = "<h4>Name of Plant: {$plant['name']} </h4><br><p>Watering needs: {$plant['watering_needs']}</p><br><p>Growth rate: {$plant['growth_rate']}</p><br><p>Fertilising needs: Once {$plant['fertilising_needs']}</p><br><p>Pet friendliness: {$plant['pet_friendliness']}</p>";
+         $result .= "<h4>Name of Plant: {$plant['name']} </h4><br><p>Watering needs: {$plant['watering_needs']}</p><br><p>Growth rate: {$plant['growth_rate']}</p><br><p>Fertilising needs: Once {$plant['fertilising_needs']}</p><br><p>Pet friendliness: {$plant['pet_friendliness']}</p>";
 
     }
-    return implode($allPlants);
+    return $result;
 }
 
 
