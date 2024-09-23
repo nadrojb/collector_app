@@ -1,16 +1,6 @@
 <?php
 
 
-function connect()
-{
-    return $db = new PDO( //creating a variable
-        'mysql:host=DB;dbname=houseplant',  //DSN, make sure there are no spaces!!!
-        'root',  //username
-        'password'  //password
-    );
-}
-
-
 
 $db = new PDO( //creating a variable
     'mysql:host=DB;dbname=houseplant',  //DSN, make sure there are no spaces!!!
@@ -54,15 +44,11 @@ if ($result){
 <?php
 
 foreach ($plants as $plant){
-    echo "<h4>Name of Plant: {$plant['name']} </h4>" . "<br>" . "<p>Watering needs: {$plant['watering_needs']} </p>" . "<br>" . "<p> Growth rate: {$plant['growth_rate']} </p>" . "<br>" . "<p> Fertilising needs: Every {$plant['fertilising_needs']} </p>" .  "<br>" . "<p>Pet friendliness: {$plant['pet_friendliness']} </p>";
+    echo "<h4>Name of Plant: {$plant['name']} </h4>" . "<br>" . "<p>Watering needs: {$plant['watering_needs']} </p>" . "<br>" . "<p> Growth rate: {$plant['growth_rate']} </p>" . "<br>" . "<p> Fertilising needs: Once {$plant['fertilising_needs']} </p>" .  "<br>" . "<p>Pet friendliness: {$plant['pet_friendliness']} </p>";
 }
 
-
-
-
 ?>
-<h3>Name of Plant: </h3>
-<p>Watering needs: </p>
+
 
 
 
