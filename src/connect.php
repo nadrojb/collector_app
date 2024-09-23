@@ -37,5 +37,34 @@ if ($result){
     echo  'something went wrong';
 }
 
-echo '<pre>';
-var_dump($plants);
+
+
+?>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<?php
+
+foreach ($plants as $plant){
+    echo "<h4>Name of Plant: {$plant['name']} </h4>" . "<br>" . "<p>Watering needs: {$plant['watering_needs']} </p>" . "<br>" . "<p> Growth rate: {$plant['growth_rate']} </p>" . "<br>" . "<p> Fertilising needs: Every {$plant['fertilising_needs']} </p>" .  "<br>" . "<p>Pet friendliness: {$plant['pet_friendliness']} </p>";
+}
+
+
+
+
+?>
+<h3>Name of Plant: </h3>
+<p>Watering needs: </p>
+
+
+
+</body>
+</html>
