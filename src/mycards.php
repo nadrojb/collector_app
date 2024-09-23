@@ -2,21 +2,26 @@
 require_once 'connect.php';
 
 
-$db = connect();
+$db = connectToDatabase();
 
-$query = $db -> prepare ('SELECT `name`, `growth_rate`,  `watering_needs`, `pet_friendliness`, `fertilising_needs` FROM `plants`');
+function pullPlantsFromDatabase($db):array
+{
+    $query = $db->prepare('SELECT `name`, `growth_rate`,  `watering_needs`, `pet_friendliness`, `fertilising_needs` FROM `plants`');
 
+    $result = $query->execute();
 
-$result = $query->execute();
-
-if ($result){
-    $plants = $query -> fetchALL ();
-}else {
-    echo  'error';
+    if ($result) {
+        $plants = $query->fetchALL();
+        return $plants;
+    } else {
+        echo 'error';
+        return [];
+    }
 }
 
+$plants = pullPlantsFromDatabase($db);
 
-function displayPlant($plants)
+function displayPlants($plants):string
 {
     $result = '';
     foreach ($plants as $plant) {
@@ -41,7 +46,7 @@ function displayPlant($plants)
 <body>
 <?php
 
-echo displayPlant($plants);
+echo displayPlants($plants);
 
 ?>
 
