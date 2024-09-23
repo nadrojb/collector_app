@@ -26,7 +26,7 @@ if (!$db){
 
 $db -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-$query = $db -> prepare ('SELECT * FROM `plants`');
+$query = $db -> prepare ('SELECT `name`, `growth_rate`,  `watering_needs`, `pet_friendliness`, `fertilising_needs` FROM `plants`');
 
 
 $result = $query->execute();
