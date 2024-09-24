@@ -1,7 +1,7 @@
 <?php
 
 
-function connectToDatabase(): PDO
+function connectToDatabase():PDO
 {
 $db = new PDO(
     'mysql:host=DB;dbname=houseplant',
