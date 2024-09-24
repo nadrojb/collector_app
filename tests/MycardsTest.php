@@ -11,8 +11,6 @@ public function testDisplayPlantsWithValidInput():void
 {
 
     $plants = [[
-
-
             'name' => 'Aloe Vera',
             'watering_needs' => 'Low',
             'growth_rate' => 'Slow',
