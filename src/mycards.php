@@ -6,7 +6,8 @@ $db = connectToDatabase();
 
 function pullPlantsFromDatabase($db):array
 {
-    $query = $db->prepare('SELECT `name`, `growth_rate`,  `watering_needs`, `pet_friendliness`, `fertilising_needs` FROM `plants`');
+    $query = $db->prepare('SELECT `name`, `growth_rate_id`,  `watering_needs`, `pet_friendliness`, `fertilising_needs` FROM `plants` JOIN `growth_rates` ON `plants` . `growth_rate_id` = `growth_rates` . `id` ');
+
 
     $result = $query->execute();
 
@@ -25,7 +26,7 @@ function displayPlants($plants):string
 {
     $result = '';
     foreach ($plants as $plant) {
-         $result .= "<h4>Name of Plant: {$plant['name']} </h4><br><p>Watering needs: {$plant['watering_needs']}</p><br><p>Growth rate: {$plant['growth_rate']}</p><br><p>Fertilising needs: Once {$plant['fertilising_needs']}</p><br><p>Pet friendliness: {$plant['pet_friendliness']}</p>";
+         $result .= "<h4>Name of Plant: {$plant['name']} </h4><br><p>Watering needs: {$plant['watering_needs']}</p><br><p>Growth rate: {$plant['growth_rate_id']}</p><br><p>Fertilising needs: Once {$plant['fertilising_needs']}</p><br><p>Pet friendliness: {$plant['pet_friendliness']}</p>";
 
     }
     return $result;
