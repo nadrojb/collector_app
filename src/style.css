@@ -24,10 +24,11 @@ body{
 }
 
 .margin-plant-description {
-    margin: 0.2rem 0;
+    margin: 1rem 0;
     font-size: 0.8rem;
     font-weight: 700;
 }
+
 
 
 .plant-name {

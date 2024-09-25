@@ -29,21 +29,25 @@ function displayPlants(array $plants): string
         $petFriendly= 'Not pet friendly';
     }
 
-         $result .= "
-                     <div class='plant'>
-                     <h4 class='plant-name'>{$plant['name']} </h4> <br>
-                     <img src='{$plant['photo']}'>
-                     <div class='description'>
-                     <p class='margin-plant-description description-divider'>Watering needs are considered {$plant['watering_needs']}</p> <br>
-                     <p class='margin-plant-description'>This plant has a {$plant['rate']} growth rate</p> <br>
-                     <p class='margin-plant-description'>Fertilse {$plant['fertilising_needs']} during it's growing season</p> <br>
-                     <p class='margin-plant-description'>$petFriendly</p>                   
-                      </div>  
-                     </div>
-                    ";
+        $result .="<div class='plant'>";
+        $result .="<h4 class='plant-name'>{$plant['name']} </h4>";
+        $result .="<img src='{$plant['photo']}'>";
+        $result .="<div class='description'>";
+        $result .="<p class='margin-plant-description description-divider'>Watering needs are considered {$plant['watering_needs']}</p>";
+        $result .="<p class='margin-plant-description'>This plant has a {$plant['rate']} growth rate</p>";
+        $result .="<p class='margin-plant-description'>Fertilse {$plant['fertilising_needs']} during it's growing season</p>";
+        $result .="<p class='margin-plant-description'>$petFriendly</p>";
+        $result .="</div>";
+        $result .="</div>";
+
     }
     return $result;
 }
+
+
+
+
+
 ?>
 
 
