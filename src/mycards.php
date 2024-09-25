@@ -34,11 +34,11 @@ function displayPlants(array $plants): string
                      <div class='plant'>
                      <div class='description'>
                      <img src='./img/testplant.webp' alt=''>
-                     <h4>Name of Plant: {$plant['name']} </h4> <br>
-                     <p>Watering needs: {$plant['watering_needs']}</p> <br>
-                     <p>Growth rate: {$plant['rate']}</p> <br>
-                     <p>Fertilising needs: Once {$plant['fertilising_needs']}</p> <br>
-                     <p>Pet friendly?: $petFriendly </p>                   
+                     <h4 class='margin-plant-description'>Name of Plant: {$plant['name']} </h4> <br>
+                     <p class='margin-plant-description'>Watering needs: {$plant['watering_needs']}</p> <br>
+                     <p class='margin-plant-description'>Growth rate: {$plant['rate']}</p> <br>
+                     <p class='margin-plant-description'>Fertilising needs: Once {$plant['fertilising_needs']}</p> <br>
+                     <p class='margin-plant-description'>Pet friendly?: $petFriendly </p>                   
                       </div>  
                      </div>
                     ";
@@ -60,6 +60,7 @@ function displayPlants(array $plants): string
     <title>Document</title>
     <link rel="stylesheet" href="./modern-normalize.css">
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>

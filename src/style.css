@@ -1,5 +1,5 @@
 body{
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     max-width: 1160px;
     background-color: white;
     color: #1A1F35;
@@ -18,10 +18,30 @@ body{
     padding-bottom: 0.4rem;
 }
 
+.margin-plant-description {
+    margin: 0.4rem 0;
+}
+
 .button {
     width: 100%;
-    background-color: #098666;
-    color: white;
+    background-color: #25867E !important;
+    color: #FEFEFE !important;
+    border: none !important;
+    padding: 0.6rem 0 !important;
+    font-weight: 700;
+    margin-top: 0.5rem !important;
+}
+
+.button:hover {
+    background-color: #23aa9e !important;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+
+.button:active {
+    scale: 0.95;
+    background-color: #23aa9e !important;
+
 }
 
 .form-wrapper{
@@ -35,14 +55,18 @@ body{
 }
 
 .form-header {
-    background-color: #098666;
+    background-color: #25867E;
     padding: 2px 1px;
     width: 100%;
     margin-bottom: 0;
     border-radius: 10px 10px 0 0;
     text-align: center;
-    color: white;
-    font-size: 1.2rem;
+    color: #FEFEFE;
+    font-size: 1.4rem;
+}
+
+.form-header h3 {
+    font-weight: 500;
 }
 
 .form {
@@ -55,11 +79,11 @@ body{
 }
 
 .form input {
-    border-color: #DFE1E4;
+    border: solid 1px #DFE1E4;
     border-radius: 5px;
-    color: #747474;
+    color: rgba(172, 171, 171, 0.56);
     font-size: 0.8rem;
-    padding: 0.2rem;
+    padding: 0.3rem;
 }
 
 .form select {
@@ -84,7 +108,7 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 2rem;
+    margin: 2rem 0;
 }
 
 .plant {
