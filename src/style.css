@@ -16,10 +16,24 @@ body{
 
 .padding-bottom-label {
     padding-bottom: 0.4rem;
+
+}
+
+.description {
+    margin-top: 0.8rem;
 }
 
 .margin-plant-description {
-    margin: 0.4rem 0;
+    margin: 0.2rem 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+
+.plant-name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
 }
 
 .button {
@@ -30,17 +44,16 @@ body{
     padding: 0.6rem 0 !important;
     font-weight: 700;
     margin-top: 0.5rem !important;
+    box-shadow: 0 9px #bcbbbb !important;
 }
 
 .button:hover {
-    background-color: #23aa9e !important;
     cursor: pointer;
-    transition: ease 0.3s;
 }
 
 .button:active {
-    scale: 0.95;
-    background-color: #23aa9e !important;
+    box-shadow: 0 5px #eae9e9 !important;
+    transform: translateY(4px);
 
 }
 
