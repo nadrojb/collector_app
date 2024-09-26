@@ -3,10 +3,6 @@
 require_once 'src/functions.php';
 
 use PHPUnit\Framework\TestCase;
-
-
-
-
 class FunctionsTest extends TestCase
 {
     public function testDisplayPlantsWithValidInput(): void
@@ -66,22 +62,18 @@ class FunctionsTest extends TestCase
         $this->assertEquals($result, $actual);
 
     }
-
 public function testDisplayPlantsWithInvalidInput (): void{
 
-        $inputA = 'Not an array';
+     $inputA = 'Not an array';
 
-        $this->expectException(TypeError::class);
+     $this->expectException(TypeError::class);
 
-        displayPlants($inputA);
+     displayPlants($inputA);
 }
-
-
 public function testNameOfPlantMissing(): void
 {
     $input = [
         [
-
             'watering_needs' => 'high',
             'rate' => 'slow',
             'fertilising_needs' => 'every eight weeks',

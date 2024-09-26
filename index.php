@@ -2,6 +2,10 @@
 
 require_once 'src/functions.php';
 
+require_once 'src/connect.php';
+
+$db = connectToDatabase();
+
 $plants = pullPlantsFromDatabase($db);
 
 ?>
@@ -19,9 +23,6 @@ $plants = pullPlantsFromDatabase($db);
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-
-
 <div class="plant-container">
 <?php
 $allPlants = displayPlants($plants);
