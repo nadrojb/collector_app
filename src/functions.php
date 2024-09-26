@@ -30,12 +30,19 @@ function displayPlants(array $plants): string
     }
 
         $result .="<div class='plant'>";
+    if (isset($plant['name'])){
         $result .="<h4 class='plant-name'>{$plant['name']} </h4>";
+    } else {
+        throw new InvalidArgumentException('Must provide name of plant');
+    }
+
+    if (isset($plant['photo']) && !is_null($plant['photo'])) {
         $result .="<img src='{$plant['photo']}'>";
+    }
         $result .="<div class='description'>";
         $result .="<p class='margin-plant-description description-divider'>Watering needs are considered {$plant['watering_needs']}</p>";
         $result .="<p class='margin-plant-description'>This plant has a {$plant['rate']} growth rate</p>";
-        $result .="<p class='margin-plant-description'>Fertilse {$plant['fertilising_needs']} during it's growing season</p>";
+        $result .="<p class='margin-plant-description'>Fertilise {$plant['fertilising_needs']} during it's growing season</p>";
         $result .="<p class='margin-plant-description'>$petFriendly</p>";
         $result .="</div>";
         $result .="</div>";

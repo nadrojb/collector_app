@@ -19,23 +19,31 @@ class FunctionsTest extends TestCase
                 'watering_needs' => 'low',
                 'rate' => 'slow',
                 'fertilising_needs' => 'every eight weeks',
-                'pet_friendliness' => 'not pet friendly',
+                'pet_friendliness' => 'Not pet friendly',
             ]
         ];
 
-        $expectedOutput =
-"<div class='plant'><h4 class='plant-name'>Aloe vera </h4><img src=''><div class='description'><p class='margin-plant-description description-divider'>Watering needs are considered low</p><p class='margin-plant-description'>This plant has a slow growth rate</p><p class='margin-plant-description'>Fertilse every eight weeks during it's growing season</p><p class='margin-plant-description'>Not pet friendly</p></div></div>"; // Update this line to reflect the actual output
+        $result ="<div class='plant'>";
+        $result .="<h4 class='plant-name'>Aloe vera </h4>";
+        $result .="<img src=''>";
+        $result .="<div class='description'>";
+        $result .="<p class='margin-plant-description description-divider'>Watering needs are considered low</p>";
+        $result .="<p class='margin-plant-description'>This plant has a slow growth rate</p>";
+        $result .="<p class='margin-plant-description'>Fertilise every eight weeks during it's growing season</p>";
+        $result .="<p class='margin-plant-description'>Not pet friendly</p>";
+        $result .="</div>";
+        $result .="</div>";
 
+        $actual = displayPlants($plants);
 
-        $this->assertEquals($expectedOutput, displayPlants($plants));
+        $this->assertEquals($result, $actual);
     }
     public function testMalformedPlantData(): void
     {
 
         $plants = [
             [
-                'name' => '',
-                'photo' => '',
+                'name' => 'spider',
                 'watering_needs' => 'high',
                 'rate' => 'slow',
                 'fertilising_needs' => 'every eight weeks',
@@ -43,17 +51,46 @@ class FunctionsTest extends TestCase
             ]
         ];
 
-        $expectedOutput =
-"<div class='plant'><h4 class='plant-name'>Aloe vera </h4><img src=''><div class='description'><p class='margin-plant-description description-divider'>Watering needs are considered low</p><p class='margin-plant-description'>This plant has a slow growth rate</p><p class='margin-plant-description'>Fertilse every eight weeks during it's growing season</p><p class='margin-plant-description'>Not pet friendly</p></div></div>"; // Update this line to reflect the actual output
+        $result ="<div class='plant'>";
+        $result .="<h4 class='plant-name'>spider </h4>";
+        $result .="<div class='description'>";
+        $result .="<p class='margin-plant-description description-divider'>Watering needs are considered high</p>";
+        $result .="<p class='margin-plant-description'>This plant has a slow growth rate</p>";
+        $result .="<p class='margin-plant-description'>Fertilise every eight weeks during it's growing season</p>";
+        $result .="<p class='margin-plant-description'>Not pet friendly</p>";
+        $result .="</div>";
+        $result .="</div>";
 
+        $actual = displayPlants($plants);
 
-        $this->assertNotEquals($expectedOutput, displayPlants($plants));
+        $this->assertEquals($result, $actual);
+
     }
 
-
 public function testDisplayPlantsWithInvalidInput (): void{
+
+        $inputA = 'Not an array';
+
         $this->expectException(TypeError::class);
 
-        displayPlants(6);
+        displayPlants($inputA);
+}
+
+
+public function testNameOfPlantMissing(): void
+{
+    $input = [
+        [
+
+            'watering_needs' => 'high',
+            'rate' => 'slow',
+            'fertilising_needs' => 'every eight weeks',
+            'pet_friendliness' => 'not pet friendly',
+        ]
+    ];
+
+    $this->expectException (InvalidArgumentException::class);
+
+    displayPlants($input);
 }
 }
