@@ -19,16 +19,16 @@ class FunctionsTest extends TestCase
             ]
         ];
 
-        $result ="<div class='plant'>";
-        $result .="<h4 class='plant-name'>Aloe vera </h4>";
-        $result .="<img src=''>";
-        $result .="<div class='description'>";
-        $result .="<p class='margin-plant-description description-divider'>Watering needs are considered low</p>";
-        $result .="<p class='margin-plant-description'>This plant has a slow growth rate</p>";
-        $result .="<p class='margin-plant-description'>Fertilise every eight weeks during it's growing season</p>";
-        $result .="<p class='margin-plant-description'>Not pet friendly</p>";
-        $result .="</div>";
-        $result .="</div>";
+        $result = "<div class='plant'>";
+        $result .= "<h4 class='plant-name'>Aloe vera </h4>";
+        $result .= "<img src=''>";
+        $result .= "<div class='description'>";
+        $result .= "<p class='margin-plant-description description-divider'>Watering needs are considered low</p>";
+        $result .= "<p class='margin-plant-description'>This plant has a slow growth rate</p>";
+        $result .= "<p class='margin-plant-description'>Fertilise every eight weeks during it's growing season</p>";
+        $result .= "<p class='margin-plant-description'>Not pet friendly</p>";
+        $result .= "</div>";
+        $result .= "</div>";
 
         $actual = displayPlants($plants);
 
@@ -47,15 +47,15 @@ class FunctionsTest extends TestCase
             ]
         ];
 
-        $result ="<div class='plant'>";
-        $result .="<h4 class='plant-name'>spider </h4>";
-        $result .="<div class='description'>";
-        $result .="<p class='margin-plant-description description-divider'>Watering needs are considered high</p>";
-        $result .="<p class='margin-plant-description'>This plant has a slow growth rate</p>";
-        $result .="<p class='margin-plant-description'>Fertilise every eight weeks during it's growing season</p>";
-        $result .="<p class='margin-plant-description'>Not pet friendly</p>";
-        $result .="</div>";
-        $result .="</div>";
+        $result = "<div class='plant'>";
+        $result .= "<h4 class='plant-name'>spider </h4>";
+        $result .= "<div class='description'>";
+        $result .= "<p class='margin-plant-description description-divider'>Watering needs are considered high</p>";
+        $result .= "<p class='margin-plant-description'>This plant has a slow growth rate</p>";
+        $result .= "<p class='margin-plant-description'>Fertilise every eight weeks during it's growing season</p>";
+        $result .= "<p class='margin-plant-description'>Not pet friendly</p>";
+        $result .= "</div>";
+        $result .= "</div>";
 
         $actual = displayPlants($plants);
 

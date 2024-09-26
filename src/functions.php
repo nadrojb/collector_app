@@ -25,9 +25,9 @@ function displayPlants(array $plants): string
     } else{
         $petFriendly = 'Not pet friendly';
     }
-    $result .= "<div class = 'plant'>";
+    $result .= "<div class='plant'>";
     if (isset($plant['name'])){
-        $result .= "<h4 class = 'plant-name'>{$plant['name']} </h4>";
+        $result .= "<h4 class='plant-name'>{$plant['name']} </h4>";
     } else {
         throw new InvalidArgumentException('Must provide name of plant');
     }
