@@ -104,13 +104,20 @@ if (isset($_POST['name']) && isset($_POST['watering']) && isset( $_POST['growth'
         echo 'invalid input';
     }
 
-    addToTable($db);
 }
 
-if ($name, $watering, $growth, $fertilising, $pet, $img {
+if ($name && $watering && $growth && $fertilising && $pet && $img) {
 
+    $data = [
+        'name' => $name,
+        'growth_rate_id' => $growth,
+        'watering_needs' => $watering,
+        'pet_friendliness' => $pet,
+        'photo' => $img
+    ];
 }
 
+    addToTable($db, $data);
 
 // IF $NAME $NAMEOFNEXTVALUE BLAH BLAH {
 // call add to table function
