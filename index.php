@@ -8,6 +8,51 @@ require_once 'src/addPlantFunction.php';
 
 $db = connectToDatabase();
 
+    if (isset($_POST['name']) && isset($_POST['watering']) && isset($_POST['growth']) && isset($_POST['fertilising']) && isset($_POST['pet']) && isset($_POST['img'])) {
+
+        $name = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
+        if ($name === false) {
+            echo 'invalid name';
+        }
+        $watering = filter_var($_POST['watering'], FILTER_SANITIZE_SPECIAL_CHARS);
+        if ($watering === false) {
+            echo 'invalid input';
+        }
+        $growth = filter_var($_POST['growth'], FILTER_SANITIZE_SPECIAL_CHARS);
+        if ($growth === false) {
+            echo 'invalid input';
+        }
+        $fertilising = filter_var($_POST['fertilising'], FILTER_SANITIZE_SPECIAL_CHARS);
+        if ($fertilising === false) {
+            echo 'invalid input';
+        }
+        $pet = filter_var($_POST['pet'], FILTER_SANITIZE_SPECIAL_CHARS);
+        if ($pet === false) {
+            echo 'invalid input';
+        }
+        $img = filter_var($_POST['img'], FILTER_SANITIZE_URL);
+        if ($img === false) {
+            echo 'invalid input';
+        }
+    }
+    if ($name && $watering && $growth && $fertilising && $pet && $img) {
+
+        $data = [
+            'name' => $name,
+            'growth_rate_id' => $growth,
+            'watering_needs' => $watering,
+            'pet_friendliness' => $pet,
+            'photo' => $img
+        ];
+    } else {
+        $data = [
+            'name' => $name,
+            'growth_rate_id' => $growth,
+            'watering_needs' => $watering,
+            'pet_friendliness' => $pet,
+        ];
+    }
+addToTable($db, $data);
 $plants = pullPlantsFromDatabase($db);
 ?>
 <!doctype html>
@@ -32,7 +77,7 @@ $plants = pullPlantsFromDatabase($db);
         <form action="index.php" method="POST" >
             <div class="flex-column padding-bottom-div">
                 <label for="name" class="padding-bottom-label">Name of plant</label>
-                <input required type="text" name="name" placeholder="Enter name here...">
+                <input type="text" name="name" placeholder="Enter name here..." required>
             </div>
             <div class="flex-column padding-bottom-div">
                 <label for="watering" class="padding-bottom-label">Select plants watering needs</label>
@@ -74,62 +119,6 @@ $plants = pullPlantsFromDatabase($db);
         </form>
     </div>
 </section>
-<?php
-
-//if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-if (isset($_POST['name']) && isset($_POST['watering']) && isset( $_POST['growth']) && isset( $_POST['fertilising']) && isset( $_POST['pet']) && isset( $_POST['img'])){
-
-    $name = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
-    if ($name === false){
-        echo 'invalid name';
-    }
-    $watering = filter_var($_POST['watering'], FILTER_SANITIZE_SPECIAL_CHARS);
-    if ($watering === false){
-        echo 'invalid input';
-    }
-    $growth = filter_var($_POST['growth'], FILTER_SANITIZE_SPECIAL_CHARS);
-    if ($growth === false){
-        echo 'invalid input';
-    }
-    $fertilising = filter_var($_POST['fertilising'], FILTER_SANITIZE_SPECIAL_CHARS);
-    if ($fertilising === false){
-        echo 'invalid input';
-    }
-    $pet = filter_var($_POST['pet'], FILTER_SANITIZE_SPECIAL_CHARS);
-    if ($pet === false){
-        echo 'invalid input';
-    }
-    $img = filter_var($_POST['img'], FILTER_SANITIZE_SPECIAL_CHARS);
-    if ($img === false){
-        echo 'invalid input';
-    }
-
-}
-
-if ($name && $watering && $growth && $fertilising && $pet && $img) {
-
-    $data = [
-        'name' => $name,
-        'growth_rate_id' => $growth,
-        'watering_needs' => $watering,
-        'pet_friendliness' => $pet,
-        'photo' => $img
-    ];
-}
-
-    addToTable($db, $data);
-
-// IF $NAME $NAMEOFNEXTVALUE BLAH BLAH {
-// call add to table function
-
-//however the function still passes in POST data, so you must pass in sanitised strings from what you have just validated and sanitised, assign them all to a
-
-//$data [
-       //'name' = $name
-        //]
-
-//then add ,$data next to the $db varibale in the function called above
-?>
 <div class="plant-container">
 <?php
 $allPlants = displayPlants($plants);
