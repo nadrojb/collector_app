@@ -15,7 +15,7 @@ function addToTable ($db){
     if (!$query->execute([$name, $watering_needs, $growth_rate_id, $pet_friendliness, $fertilising_needs, $photo])) {
         echo 'data not inserted successfully';
     }
-}
+
 }
 
 
