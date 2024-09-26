@@ -15,25 +15,25 @@ function pullPlantsFromDatabase(PDO $db): array
 function displayPlants(array $plants): string
 {
     if (empty($plants)){
-        echo 'Fields are empty';
-}   else {
+        echo 'There are no plants in the collection';
+    }  else {
 
     $result = '';
     foreach ($plants as $plant){
-    if ($plant['pet_friendliness'] === 1){
-        $petFriendly = 'Considered pet friendly';
-    } else{
-        $petFriendly = 'Not pet friendly';
-    }
-    $result .= "<div class = 'plant'>";
-    if (isset($plant['name'])){
-        $result .= "<h4 class = 'plant-name'>{$plant['name']} </h4>";
-    } else {
-        throw new InvalidArgumentException('Must provide name of plant');
-    }
-    if (isset($plant['photo']) && !is_null($plant['photo'])) {
-        $result .= "<img src='{$plant['photo']}'>";
-    }
+        if ($plant['pet_friendliness'] === 1){
+            $petFriendly = 'Considered pet friendly';
+        } else{
+            $petFriendly = 'Not pet friendly';
+        }
+        $result .= "<div class = 'plant'>";
+        if (isset($plant['name'])){
+            $result .= "<h4 class = 'plant-name'>{$plant['name']} </h4>";
+        } else {
+            throw new InvalidArgumentException('Must provide name of plant');
+        }
+        if (isset($plant['photo']) && !is_null($plant['photo'])) {
+            $result .= "<img src='{$plant['photo']}'>";
+        }
         $result .= "<div class='description'>";
         $result .= "<p class='margin-plant-description description-divider'>Watering needs are considered {$plant['watering_needs']}</p>";
         $result .= "<p class='margin-plant-description'>This plant has a {$plant['rate']} growth rate</p>";
