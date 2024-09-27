@@ -45,9 +45,9 @@ $db = connectToDatabase();
             'photo' => $img
         ];
 
-addToTable($db, $data);
+    addToTable($db, $data);
     }
-    
+
 $plants = pullPlantsFromDatabase($db);
 ?>
 <!doctype html>

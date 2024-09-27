@@ -19,6 +19,7 @@ function displayPlants(array $plants): string
     }  else {
 
     $result = '';
+
     foreach ($plants as $plant){
         if ($plant['pet_friendliness'] === 1){
             $petFriendly = 'Considered pet friendly';
