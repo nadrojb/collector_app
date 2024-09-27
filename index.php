@@ -44,15 +44,10 @@ $db = connectToDatabase();
             'pet_friendliness' => $pet,
             'photo' => $img
         ];
-    } else {
-        $data = [
-            'name' => $name,
-            'growth_rate_id' => $growth,
-            'watering_needs' => $watering,
-            'pet_friendliness' => $pet,
-        ];
-    }
+
 addToTable($db, $data);
+    }
+    
 $plants = pullPlantsFromDatabase($db);
 ?>
 <!doctype html>
