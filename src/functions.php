@@ -15,10 +15,11 @@ function pullPlantsFromDatabase(PDO $db): array
 function displayPlants(array $plants): string
 {
     if (empty($plants)){
-        echo 'Fields are empty';
-}   else {
+        echo 'There are no plants in the collection';
+    }  else {
 
     $result = '';
+
     foreach ($plants as $plant){
     if ($plant['pet_friendliness'] === 1){
         $petFriendly = 'Considered pet friendly';

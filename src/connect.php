@@ -1,6 +1,4 @@
 <?php
-
-
 function connectToDatabase():PDO
 {
 $db = new PDO(
@@ -11,10 +9,7 @@ $db = new PDO(
 $db -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 return $db;
-
 }
-
-
 ?>
 
 
