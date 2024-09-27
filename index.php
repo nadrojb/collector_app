@@ -8,44 +8,36 @@ require_once 'src/addPlantFunction.php';
 
 $db = connectToDatabase();
 
+$name_error = 'Appropriate name must be entered';
+$watering_error = 'Must select appropriate watering needs option';
+$growth_error = 'Must select appropriate growth rate option';
+$fertilising_error = 'Must select appropriate fertilising needs option';
+$pet_error = 'Must select whether plant is safe for pets';
+
+
     if (isset($_POST['name']) && isset($_POST['watering']) && isset($_POST['growth']) && isset($_POST['fertilising']) && isset($_POST['pet']) && isset($_POST['img'])) {
 
         $name = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
-        if ($name === false) {
-            echo 'invalid name';
-        }
+
         $watering = filter_var($_POST['watering'], FILTER_SANITIZE_SPECIAL_CHARS);
-        if ($watering === false) {
-            echo 'invalid input';
-        }
+
         $growth = filter_var($_POST['growth'], FILTER_SANITIZE_SPECIAL_CHARS);
-        if ($growth === false) {
-            echo 'invalid input';
-        }
+
         $fertilising = filter_var($_POST['fertilising'], FILTER_SANITIZE_SPECIAL_CHARS);
-        if ($fertilising === false) {
-            echo 'invalid input';
-        }
+
         $pet = filter_var($_POST['pet'], FILTER_SANITIZE_SPECIAL_CHARS);
-        if ($pet === false) {
-            echo 'invalid input';
-        }
-        $img = filter_var($_POST['img'], FILTER_SANITIZE_URL);
-        if ($img === false) {
-            echo 'invalid input';
-        }
-    }
-    if ($name && $watering && $growth && $fertilising && $pet && $img) {
+
+    if ($name && $watering && $growth && $fertilising && $pet) {
 
         $data = [
             'name' => $name,
             'growth_rate_id' => $growth,
             'watering_needs' => $watering,
             'pet_friendliness' => $pet,
-            'photo' => $img
         ];
 
     addToTable($db, $data);
+    }
     }
 
 $plants = pullPlantsFromDatabase($db);
@@ -72,7 +64,9 @@ $plants = pullPlantsFromDatabase($db);
         <form action="index.php" method="POST" >
             <div class="flex-column padding-bottom-div">
                 <label for="name" class="padding-bottom-label">Name of plant</label>
-                <input type="text" name="name" placeholder="Enter name here..." required>
+                <input type="text" name="name" placeholder="Enter name here..." required <?php if ($watering === false) {
+                    echo $name_error;
+                }?>>
             </div>
             <div class="flex-column padding-bottom-div">
                 <label for="watering" class="padding-bottom-label">Select plants watering needs</label>
@@ -81,6 +75,10 @@ $plants = pullPlantsFromDatabase($db);
                     <option value="moderate">Moderate</option>
                     <option value="high">High</option>
                 </select>
+                <?php if ($watering === false) {
+                    echo $watering_error;
+                }
+                ?>
             </div>
             <div class="flex-column padding-bottom-div">
                 <label for="growth" class="padding-bottom-label">Select plants growth rate</label>
@@ -89,6 +87,10 @@ $plants = pullPlantsFromDatabase($db);
                     <option value="2">Moderate</option>
                     <option value="3">Fast</option>
                 </select>
+                <?php if ($growth === false) {
+                    echo $growth_error;
+                }
+                ?>
             </div>
             <div class="flex-column padding-bottom-div">
                 <label for="fertilising" class="padding-bottom-label">Select plants fertilising needs</label>
@@ -97,6 +99,10 @@ $plants = pullPlantsFromDatabase($db);
                     <option value="2">Bimonthly</option>
                     <option value="1">Quarterly</option>
                 </select>
+                <?php  if ($fertilising === false) {
+                    echo $fertilising_error;
+                }
+                ?>
             </div>
             <div class="flex-column padding-bottom-div">
                 <label for="pet" class="padding-bottom-label">Is this plant pet friendly?</label>
@@ -104,6 +110,10 @@ $plants = pullPlantsFromDatabase($db);
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                 </select>
+                <?php if ($pet === false) {
+                    echo $pet_error;
+                }
+                ?>
             </div>
             <div class="padding-bottom-label flex-column">
                 <label for="img" class="padding-bottom-label">Enter link to image of plant</label>
