@@ -115,11 +115,6 @@ $plants = pullPlantsFromDatabase($db);
                 }
                 ?>
             </div>
-            <div class="padding-bottom-label flex-column">
-                <label for="img" class="padding-bottom-label">Enter link to image of plant</label>
-                <input type="text" name="img" placeholder="Enter link...">
-            </div>
-
             <input class="button" type="submit" name="submit" id="" value="Add Plant">
         </form>
     </div>
