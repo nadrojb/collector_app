@@ -15,7 +15,9 @@ $fertilising_error = 'Must select appropriate fertilising needs option';
 $pet_error = 'Must select whether plant is safe for pets';
 
 
-    if (isset($_POST['name']) && isset($_POST['watering']) && isset($_POST['growth']) && isset($_POST['fertilising']) && isset($_POST['pet']) && isset($_POST['img'])) {
+$name = $watering = $growth = $fertilising = $pet = false;
+
+    if (isset($_POST['name']) && isset($_POST['watering']) && isset($_POST['growth']) && isset($_POST['fertilising']) && isset($_POST['pet'])) {
 
         $name = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -33,6 +35,7 @@ $pet_error = 'Must select whether plant is safe for pets';
             'name' => $name,
             'growth_rate_id' => $growth,
             'watering_needs' => $watering,
+            'fertilising_needs' => $fertilising,
             'pet_friendliness' => $pet,
         ];
 
@@ -64,7 +67,7 @@ $plants = pullPlantsFromDatabase($db);
         <form action="index.php" method="POST" >
             <div class="flex-column padding-bottom-div">
                 <label for="name" class="padding-bottom-label">Name of plant</label>
-                <input type="text" name="name" placeholder="Enter name here..." required <?php if ($watering === false) {
+                <input type="text" name="name" placeholder="Enter name here..." required <?php if ($name === false) {
                     echo $name_error;
                 }?>>
             </div>
